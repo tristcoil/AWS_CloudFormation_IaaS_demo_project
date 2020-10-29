@@ -1,0 +1,54 @@
+From the project requirements:
+https://classroom.udacity.com/nanodegrees/nd9991/parts/78ebd463-628c-4f6e-8802-f7a344f9cf55/modules/1fd045ed-5a01-42e9-9469-3695e2ac95db/lessons/9e4b346b-a0ce-4bfd-92e9-4f7412682240/concepts/ae4490fe-9cba-4bc7-b682-313dd2322f0e
+
+
+You'll need two vCPUs and at least 4GB of RAM. The Operating System to be used is Ubuntu 18. So, choose an Instance size and Machine Image (AMI) that best fits this spec. Be sure to allocate at least 10GB of disk space so that you don't run into issues.
+
+
+
+
+As for outbound, the servers will need unrestricted internet access to be able to download and update its software.
+
+
+The application needs to be deployed into private subnets with a Load Balancer located in a public subnet.
+
+
+looks like script export statement
+One of the output exports of the CloudFormation script should be the public URL of the LoadBalancer.
+
+delays in hc on loadbalancer
+Also, the application takes a few seconds to load. 
+This information is crucial for the settings of your load balancer health check.
+
+------------------------------
+
+Parameters:
+# whatever you consider a changing value, put it as a parameter instead of hard-coding it into your script
+Resources:
+  #instace profile contains the IAM Role name(s) that we want to associate to our auto scaling EC2 Servers
+  ProfileWithRolesForOurApp:
+    Type: AWS::IAM::InstanceProfile
+    Properties: 
+      Roles:
+        - UdacityS3ReadOnlyEC2
+  
+          #!/bin/bash
+          apt-get update -y
+          apt-get install unzip awscli -y
+          apt-get install apache2 -y
+          systemctl start apache2.service
+          cd /var/www/html
+          aws s3 cp s3://udacity-demo-iaac-project/udacity.zip .
+          unzip -o udacity.zip
+  Outputs: 
+  #Bonus points for useful outputs!
+
+
+
+
+
+
+
+
+
+
