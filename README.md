@@ -45,3 +45,18 @@ https://classroom.udacity.com/nanodegrees/nd9991/parts/78ebd463-628c-4f6e-8802-f
 plus git commands generated during github repo creation
 
 
+
+Notes about pushing changes into repo:
+echo "# AWS_CloudFormation_IaaS_demo_project" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/tristcoil/AWS_CloudFormation_IaaS_demo_project.git
+git push -u origin main
+
+
+
+
+
+
